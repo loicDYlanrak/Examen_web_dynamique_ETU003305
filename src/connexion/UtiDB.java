@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class UtiDB {
-    private static final String URL = "jdbc:mysql://localhost:3306/gestion_financiere";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_s2_ETU003305";
     private static final String UTILISATEUR = "ETU003305";
     private static final String MOT_DE_PASSE = "izXFwzCp";
 
