@@ -1,0 +1,67 @@
+creer moi ce script windows build.bat
+
+1 - creer fichier build s il existe
+2 - ajouter repertoire   WEB-INF -> classes pour mettre les classes java compiler 
+effacer le contenus de build s il y avait des trucs avant 
+3 -  prendre toutes les noms des classes java dans un fichier source.txt src 
+et compiler en utilisant source.txt mettre les classes Compiler  *.java dans build /WEB-INF/classes et aussi dans bin  avec les packages
+pour compilation ajouter les -cp avec /lib/servlet-api.jar  et /lib/mysql-connector-j-9.0.0.jar 
+4 - copier webapp/*  vers build/ 
+5 - create fichier  projetServlet.war avec le contenur de build 
+creer un conteneur docker avec tomcat et demarer sur port 8080 et si le conteneur existe deja , si il a de fichier qui on ete modifier 
+on redemare tomcat , 
+lier le webapps du conteneur au dossier webapps du dossier 
+donne le contenu de Dockerfile:
+
+C:.
+│   .gitattributes
+│   build.bat
+│   build.sh
+│   Dockerfile
+│   README.md
+│   source.txt
+│   test.txt
+│   text.txt
+│
+├───bin
+├───build
+├───lib
+│       mysql-connector-j-9.0.0.jar
+│       servlet-api.jar
+│
+├───src
+│   ├───aff
+│   │       Main.java
+│   │
+│   ├───connexion
+│   │       UtiDB.java
+│   │
+│   ├───fanafody
+│   │       Medicament.java
+│   │       MedicamentDAO.java
+│   │       Ordonnance.java
+│   │       OrdonnanceDAO.java
+│   │       TypeMedicament.java
+│   │
+│   ├───interfac
+│   │       BaseModele.java
+│   │       BaseObject.java
+│   │       DAO.java
+│   │
+│   └───servlet
+│           MedicamentServlet.java
+│           TypeMedicamentServlet.java
+│
+├───webapp
+│   │   index.html
+│   │   medicament-form.jsp
+│   │   medicament-list.jsp
+│   │   type-medicament-form.jsp
+│   │   type-medicament-list.jsp
+│   │
+│   ├───assets
+│   └───WEB-INF
+│           web.xml
+│
+└───webapps
+        sample.war

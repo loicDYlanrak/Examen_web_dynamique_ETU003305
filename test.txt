@@ -1,0 +1,39 @@
+PS C:\TestDocker> docker build -t mon-tomcat 
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -     
+
+Start a build
+PS C:\TestDocker> docker build -t mon-tomcat .
+[+] Building 55.3s (8/8) FINISHED                                                                    docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                 2.2s
+ => => transferring dockerfile: 350B                                                                                 0.4s
+ => [internal] load metadata for docker.io/library/tomcat:9.0                                                       19.6s
+ => [auth] library/tomcat:pull token for registry-1.docker.io                                                        0.0s
+ => [internal] load .dockerignore                                                                                    0.9s
+ => => transferring context: 2B                                                                                      0.0s
+ => [internal] load build context                                                                                    1.7s
+ => => transferring context: 4.64kB                                                                                  0.0s
+ => => resolve docker.io/library/tomcat:9.0@sha256:b2e2751a6b4fc7f14b1425438c0e2b02adc265b3f96af1488c06e38a308f9104  1.3s 
+ => => sha256:b2e2751a6b4fc7f14b1425438c0e2b02adc265b3f96af1488c06e38a308f9104 6.64kB / 6.64kB                       0.0s 
+ => => sha256:2707eb7f6b4bb687d937dd5c6a164ef1b9f1b085e7816e1e7464a15a283286ab 2.72kB / 2.72kB                       0.0s 
+ => => sha256:05664b63046cd734ae5d5517107d6c6ab48dd0422a96bd07e4f5a8694df3a9c8 12.57kB / 12.57kB                     0.0s 
+ => => sha256:9ed202364a8dd9a3204968422a20570e8604bc863b09ffc24dbde660a5ba0197 28.72MB / 28.72MB                     7.7s 
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B                             3.5s 
+ => => extracting sha256:8d28736f636766f62050b47bafc80e251d705552677e4890f07b320428891580                            0.3s 
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1                            0.0s 
+ => => extracting sha256:9ed202364a8dd9a3204968422a20570e8604bc863b09ffc24dbde660a5ba0197                            3.1s 
+ => [2/2] COPY sample.war /usr/local/tomcat/webapps/                                                                 5.3s 
+ => exporting to image                                                                                               2.0s 
+ => => exporting layers                                                                                              1.2s 
+ => => writing image sha256:0c43facf96ba203b4c69a73129b72d5171021b85407b9c354aec6d7df49992d8                         0.1s 
+ => => naming to docker.io/library/mon-tomcat                                                                        0.2s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xs36jgqaxopg4607yhoucgnm7
+PS C:\TestDocker> docker run -d -p 8080:8080 --name Tomcat mon-tomcat
+docker: Error response from daemon: Conflict. The container name "/Tomcat" is already in use by container "bca32bd3f242bac6282f49a63b9c6b53f23c69b28954ad78ddcbeef3543bbe96". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS C:\TestDocker> docker run -d -p 8080:8080 --name tomcat-container mon-tomcat
+295f80bf5efd6756d449406d5f76e1cf5ba4c89ffd1320c81e5ffb1ca672b278
+PS C:\TestDocker> 
